@@ -1,0 +1,27 @@
+footer {
+    background-color: #7A26C1;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    box-shadow: 0px 0px 1px #000;
+}
+
+footer nav ul {
+    list-style: none;
+    height: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+footer nav ul li svg {
+    color: #fff;
+    height: 2em;
+    width: 2em;
+    transition: 0.5s;
+}
+
+footer nav ul li svg:hover {
+    transform: scale(110%);
+    cursor: pointer;
+}

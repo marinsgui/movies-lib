@@ -3,6 +3,7 @@ import './styles.css';
 import { useState, useEffect } from 'react';
 
 import Header from '../../components/Header';
+import Footer from '../../components/Footer';
 
 export default function Home() {
 
@@ -31,6 +32,7 @@ export default function Home() {
         <div>
             <Header />
             <div className='container'>
+                <h1>Últimos lançamentos</h1>
                 <ul>
                     {allMovies.map(item => (
                         <li key={item.id}>
@@ -42,6 +44,7 @@ export default function Home() {
                     ))}
                 </ul>
             </div>
+            <Footer />
         </div>
     )
 }
