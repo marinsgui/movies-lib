@@ -27,7 +27,7 @@ export default function TopRatedMovies() {
 
     return (
         <main className='container'>
-            <h1>Filmes mais bem avaliados</h1>
+            <h1>Melhores filmes</h1>
             <ul>
                 {topMovies.map(item => (
                     <li key={item.id}>
