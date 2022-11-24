@@ -8,7 +8,7 @@ export default function Header() {
     return (
         <header>
             <Link to='/'>
-                <img src="src/assets/watchflix-logo.svg" alt="Watchflix logo" />
+                <img src="../../src/assets/watchflix-logo.svg" alt="Watchflix logo" />
             </Link>
             
             <nav>
