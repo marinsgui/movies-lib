@@ -10,6 +10,15 @@ export default function Header() {
             <Link to='/'>
                 <img src="src/assets/watchflix-logo.svg" alt="Watchflix logo" />
             </Link>
+            
+            <nav>
+                <ul>
+                    <li>
+                        <Link to='/TopRatedMovies' className='link'>Filmes mais bem avaliados</Link>
+                    </li>
+                </ul>
+            </nav>
+            
             <form className="search-bar">
                 <input type="text" placeholder='Faça a sua busca' />
                 <button>
