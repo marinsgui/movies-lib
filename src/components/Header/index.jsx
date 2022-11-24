@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 
 import { FaSearch } from 'react-icons/fa';
 
+import logo from '../../assets/watchflix-logo.svg';
+
 export default function Header() {
     return (
         <header>
             <Link to='/'>
-                <img src="../../src/assets/watchflix-logo.svg" alt="Watchflix logo" />
+                <img src={logo} alt="Watchflix logo" />
             </Link>
             
             <nav>

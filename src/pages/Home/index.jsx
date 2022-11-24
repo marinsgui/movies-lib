@@ -1,9 +1,11 @@
 import './styles.css';
 
+import image from '../../assets/home-cinema-animate.svg';
+
 export default function Home() {
     return (
         <main className='homepage'>
-            <img src="../../src/assets/home-cinema-animate.svg" />
+            <img src={image} />
             <h1>Bem-Vindo(a)!<br />Milhões de Filmes, Séries e Pessoas para Descobrir<br />Explore já!</h1>
         </main>
     )
