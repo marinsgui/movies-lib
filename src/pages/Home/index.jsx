@@ -21,12 +21,12 @@ export default function Home() {
     }
 
     useEffect(() => {
-        const allMoviesUrl = `${moviesURL}popular?${apiKey}&language=pt-BR`
+        const allMoviesUrl = `${moviesURL}popular?${apiKey}&language=pt-BR&region=BR`
         
         getAllMovies(allMoviesUrl)
     }, [])
 
-    
+      
 
     return (
         <div>
@@ -39,7 +39,7 @@ export default function Home() {
                             <img src={imageURL + item.poster_path} alt="Movie Poster" />
                             <h2>{item.title}</h2>
                             <p><span>Data de lançamento:</span> {item.release_date}</p>
-                            <p><span>Nota:</span> {item.vote_average}</p>
+                            <p><span>&#x2B50;</span> {item.vote_average}</p>
                         </li>
                     ))}
                 </ul>
