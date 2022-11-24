@@ -16,7 +16,6 @@ export default function Details() {
         const data = await res.json()
 
         setMovie(data)
-        console.log(data)
     }
 
     useEffect(() => {

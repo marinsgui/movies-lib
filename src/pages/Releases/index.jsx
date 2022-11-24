@@ -1,37 +1,41 @@
-import '../Releases/styles.css';
+import './styles.css';
 
 import { Link } from 'react-router-dom';
 
+import { useState, useEffect } from 'react';
+
 import Details from '../Details';
 
-import { useEffect, useState } from 'react';
+export default function Home() {
 
-export default function TopRatedMovies() {
     const moviesURL = import.meta.env.VITE_API;
     const apiKey = import.meta.env.VITE_API_KEY;
     const imageURL = import.meta.env.VITE_IMG;
 
-    const [topMovies, setTopMovies] = useState([])
+    const [allMovies, setAllMovies] = useState([]);
 
-    const getTopRatedMovies = async (url) => {
+    const getAllMovies = async (url) => {
         const res = await fetch(url)
         const data = await res.json()
 
-        setTopMovies(data.results)
+        setAllMovies(data.results)
     }
 
     useEffect(() => {
-        const topRatedUrl = `${moviesURL}top_rated?${apiKey}&language=pt-BR`
-        getTopRatedMovies(topRatedUrl)
+        const allMoviesUrl = `${moviesURL}popular?${apiKey}&language=pt-BR&region=BR`
+        
+        getAllMovies(allMoviesUrl)
     }, [])
+
+      
 
     return (
         <div className='container'>
-            <h1>Filmes mais bem avaliados</h1>
+            <h1>Últimos lançamentos</h1>
             <ul>
-                {topMovies.map(item => (
+                {allMovies.map(item => (
                     <li key={item.id}>
-                        <Link to={`/Details/${item.id}`} element={<Details />}>
+                        <Link to={`/details/${item.id}`} element={<Details />}>
                             <img src={imageURL + item.poster_path} alt="Movie Poster" />
                         </Link>
                         <h2>{item.title}</h2>

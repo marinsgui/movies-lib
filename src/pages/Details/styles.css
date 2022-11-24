@@ -8,6 +8,8 @@ body {
     justify-content: center;
     align-items: center;
     padding: 1em;
+    width: 600px;
+    margin: 0 auto;
 }
 
 .movie-container img {
@@ -23,6 +25,7 @@ body {
 .movie-container p {
     font-size: 1.2em;
     color: #ccc;
+    text-align: justify;
 }
 
 .movie-container span {

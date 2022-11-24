@@ -14,7 +14,10 @@ export default function Header() {
             <nav>
                 <ul>
                     <li>
-                        <Link to='/TopRatedMovies' className='link'>Filmes mais bem avaliados</Link>
+                        <Link to='/releases' className='link'>Lançamentos</Link>
+                    </li>
+                    <li>
+                        <Link to='/topratedmovies' className='link'>Melhores filmes</Link>
                     </li>
                 </ul>
             </nav>
