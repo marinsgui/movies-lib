@@ -30,7 +30,7 @@ export default function Home() {
       
 
     return (
-        <div className='container'>
+        <main className='container'>
             <h1>Últimos lançamentos</h1>
             <ul>
                 {allMovies.map(item => (
@@ -44,6 +44,6 @@ export default function Home() {
                     </li>
                 ))}
             </ul>
-        </div>
+        </main>
     )
 }

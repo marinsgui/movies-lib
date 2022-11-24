@@ -26,7 +26,7 @@ export default function TopRatedMovies() {
     }, [])
 
     return (
-        <div className='container'>
+        <main className='container'>
             <h1>Filmes mais bem avaliados</h1>
             <ul>
                 {topMovies.map(item => (
@@ -40,6 +40,6 @@ export default function TopRatedMovies() {
                     </li>
                 ))}
             </ul>
-        </div>
+        </main>
     )
 }

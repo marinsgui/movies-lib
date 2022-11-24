@@ -24,13 +24,13 @@ export default function Details() {
     }, [])
     
     return (
-        <div className='movie-container'>
+        <main className='movie-container'>
             <img src={imageURL + movie.poster_path} alt="Movie poster" />
             <h2>{movie.title}</h2>
             <p><span>Título original:</span> {movie.original_title}</p>
             <p>&#x2B50; {movie.vote_average}</p>
             <p><span>Duração:</span> {movie.runtime} min.</p>
             <p><span>Sinopse:</span> {movie.overview}</p>
-        </div>
+        </main>
     )
 }
