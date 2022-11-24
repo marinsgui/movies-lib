@@ -2,9 +2,6 @@ import './styles.css';
 
 import { useState, useEffect } from 'react';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-
 export default function Home() {
 
     const moviesURL = import.meta.env.VITE_API;
@@ -29,22 +26,18 @@ export default function Home() {
       
 
     return (
-        <div>
-            <Header />
-            <div className='container'>
-                <h1>Últimos lançamentos</h1>
-                <ul>
-                    {allMovies.map(item => (
-                        <li key={item.id}>
-                            <img src={imageURL + item.poster_path} alt="Movie Poster" />
-                            <h2>{item.title}</h2>
-                            <p><span>Data de lançamento:</span> {item.release_date}</p>
-                            <p><span>&#x2B50;</span> {item.vote_average}</p>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            <Footer />
+        <div className='container'>
+            <h1>Últimos lançamentos</h1>
+            <ul>
+                {allMovies.map(item => (
+                    <li key={item.id}>
+                        <img src={imageURL + item.poster_path} alt="Movie Poster" />
+                        <h2>{item.title}</h2>
+                        <p><span>Data de lançamento:</span> {item.release_date}</p>
+                        <p>&#x2B50; {item.vote_average}</p>
+                    </li>
+                ))}
+            </ul>
         </div>
     )
 }

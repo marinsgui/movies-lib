@@ -15,11 +15,9 @@
     align-items: center;
     flex-wrap: wrap;
     list-style: none;
-    
 }
 
 .container ul li {
-    padding: 1em;
     margin: 2em;
     color: #fff;
     width: 300px;
