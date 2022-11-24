@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 
 import Home from './pages/Home';
 import TopRatedMovies from './pages/TopRatedMovies';
+import Details from './pages/Details';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route path='/TopRatedMovies' element={<TopRatedMovies />} />
+          <Route path='/Details/:id' element={<Details />} />
         </Routes>
         <Footer />
       </BrowserRouter>
