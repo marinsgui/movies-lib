@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 import { FaSearch } from 'react-icons/fa';
 
-import logo from '../../assets/watchflix-logo.svg';
+import logo from '../../assets/movies-lib-logo.svg';
 
 export default function Header() {
     return (
