@@ -21,6 +21,9 @@ export default function Header() {
                     <li>
                         <Link to='/topratedmovies' className='link'>Melhores filmes</Link>
                     </li>
+                    <li>
+                        <Link to='/tvshows' className='link'>Séries</Link>
+                    </li>
                 </ul>
             </nav>
             

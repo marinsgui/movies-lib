@@ -9,6 +9,8 @@ import Releases from './pages/Releases';
 import TopRatedMovies from './pages/TopRatedMovies';
 import Details from './pages/Details';
 import Home from './pages/Home';
+import TvShows from './pages/TvShows';
+import TvDetails from './pages/TvDetails';
 
 function App() {
   return (
@@ -19,7 +21,9 @@ function App() {
           <Route exact path='/' element={<Home />} />
           <Route path='/releases' element={<Releases />} />
           <Route path='/topratedmovies' element={<TopRatedMovies />} />
+          <Route path='/tvshows' element={<TvShows />} />
           <Route path='/details/:id' element={<Details />} />
+          <Route path='/tvdetails/:id' element={<TvDetails />} />
         </Routes>
         <Footer />
       </BrowserRouter>
