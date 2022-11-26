@@ -17,7 +17,6 @@ export default function TvShows() {
         const data = await res.json()
 
         setTvShows(data.results)
-        console.log(data.results)
     }
 
     useEffect(() => {

@@ -27,8 +27,6 @@ export default function Home() {
         getAllMovies(allMoviesUrl)
     }, [])
 
-      
-
     return (
         <main className='container'>
             <h1>Últimos lançamentos</h1>
