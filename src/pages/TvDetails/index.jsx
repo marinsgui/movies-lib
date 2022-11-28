@@ -16,7 +16,6 @@ export default function TvDetails() {
         const data = await res.json()
 
         setTvShow(data)
-        console.log(data)
     }
 
     useEffect(() => {
@@ -25,7 +24,7 @@ export default function TvDetails() {
     }, [])
 
     return (
-        <main style={{backgroundImage: `url(${imageURL + tvShow.backdrop_path})` }}>
+        <main style={{ backgroundImage: `url(${imageURL + tvShow.backdrop_path})` }}>
             <section>
                 <div className='details-container'>
                     <img src={imageURL + tvShow.poster_path} alt="TV Show poster" />

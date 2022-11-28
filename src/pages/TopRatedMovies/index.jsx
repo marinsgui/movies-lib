@@ -1,10 +1,11 @@
 import '../Releases/styles.css';
 
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 import Details from '../Details';
+import Loading from '../../components/Loading';
 
-import { useEffect, useState } from 'react';
 
 export default function TopRatedMovies() {
     const moviesURL = import.meta.env.VITE_API;
@@ -28,18 +29,23 @@ export default function TopRatedMovies() {
     return (
         <main className='container'>
             <h1>Melhores filmes</h1>
-            <ul>
-                {topMovies.map(item => (
-                    <li key={item.id}>
-                        <Link to={`/Details/${item.id}`} element={<Details />}>
-                            <img src={imageURL + item.poster_path} alt="Movie Poster" />
-                        </Link>
-                        <h2>{item.title}</h2>
-                        <p><span>Data de lançamento:</span> {item.release_date}</p>
-                        <p>&#x2B50; {item.vote_average}</p>
-                    </li>
-                ))}
-            </ul>
+            {topMovies.length === 0 && (
+                <Loading />
+            )}
+            {topMovies.length > 0 && (
+                <ul>
+                    {topMovies.map(item => (
+                        <li key={item.id}>
+                            <Link to={`/Details/${item.id}`} element={<Details />}>
+                                <img src={imageURL + item.poster_path} alt="Movie Poster" />
+                            </Link>
+                            <h2>{item.title}</h2>
+                            <p><span>Data de lançamento:</span> {item.release_date}</p>
+                            <p>&#x2B50; {item.vote_average}</p>
+                        </li>
+                    ))}
+                </ul>
+            )}
         </main>
     )
 }

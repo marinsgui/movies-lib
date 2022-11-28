@@ -1,9 +1,11 @@
+import './styles.css';
+
 import loading from '../../assets/loading.svg';
 
 export default function Loading() {
     return (
-        <main>
+        <div className='loading'>
             <img src={loading} alt="loading" />
-        </main>
+        </div>
     )
 }
