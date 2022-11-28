@@ -11,6 +11,7 @@ import Details from './pages/Details';
 import Home from './pages/Home';
 import TvShows from './pages/TvShows';
 import TvDetails from './pages/TvDetails';
+import Search from './pages/Search';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path='/tvshows' element={<TvShows />} />
           <Route path='/details/:id' element={<Details />} />
           <Route path='/tvdetails/:id' element={<TvDetails />} />
+          <Route path='/search' element={<Search />} />
         </Routes>
         <Footer />
       </BrowserRouter>
