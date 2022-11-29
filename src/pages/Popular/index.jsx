@@ -7,36 +7,36 @@ import { useState, useEffect } from 'react';
 import Details from '../Details';
 import Loading from '../../components/Loading';
 
-export default function Home() {
+export default function PopularMovies() {
 
     const moviesURL = import.meta.env.VITE_API;
     const apiKey = import.meta.env.VITE_API_KEY;
     const imageURL = import.meta.env.VITE_IMG;
 
-    const [allMovies, setAllMovies] = useState([]);
+    const [popularMovies, setPopularMovies] = useState([]);
 
-    const getAllMovies = async (url) => {
+    const getPopularMovies = async (url) => {
         const res = await fetch(url)
         const data = await res.json()
 
-        setAllMovies(data.results)
+        setPopularMovies(data.results)
     }
     
     useEffect(() => {
-        const allMoviesUrl = `${moviesURL}popular?${apiKey}&language=pt-BR&region=BR`
+        const popularMoviesUrl = `${moviesURL}popular?${apiKey}&language=pt-BR&region=BR`
         
-        getAllMovies(allMoviesUrl)
+        getPopularMovies(popularMoviesUrl)
     }, [])
 
     return (
         <main className='container'>
-            <h1>Últimos lançamentos</h1>
-            {allMovies.length === 0 && (
+            <h1>Filmes populares</h1>
+            {popularMovies.length === 0 && (
                 <Loading />
             )}
-            {allMovies.length > 0 && (
+            {popularMovies.length > 0 && (
                 <ul>
-                    {allMovies.map(item => (
+                    {popularMovies.map(item => (
                         <li key={item.id}>
                             <Link to={`/details/${item.id}`} element={<Details />}>
                                 <img src={imageURL + item.poster_path} alt="Movie Poster" />

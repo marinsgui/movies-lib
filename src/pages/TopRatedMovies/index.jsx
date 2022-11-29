@@ -1,4 +1,4 @@
-import '../Releases/styles.css';
+import '../Popular/styles.css';
 
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';

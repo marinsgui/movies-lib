@@ -30,13 +30,10 @@ export default function Header() {
             <nav>
                 <ul>
                     <li>
-                        <Link to='/releases' className='link'>Lançamentos</Link>
+                        <Link to='/popular' className='link'>Filmes populares</Link>
                     </li>
                     <li>
                         <Link to='/topratedmovies' className='link'>Melhores filmes</Link>
-                    </li>
-                    <li>
-                        <Link to='/tvshows' className='link'>Séries</Link>
                     </li>
                 </ul>
             </nav>
