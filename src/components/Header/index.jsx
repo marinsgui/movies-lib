@@ -38,6 +38,9 @@ export default function Header() {
                     <li>
                         <Link to='/upcoming' className='link'>Próximos lançamentos</Link>
                     </li>
+                    <li>
+                        <Link to='/nowplaying' className='link'>Filmes em cartaz</Link>
+                    </li>
                 </ul>
             </nav>
             
