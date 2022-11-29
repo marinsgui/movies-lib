@@ -6,34 +6,34 @@ import { useEffect, useState } from 'react';
 import Details from '../Details';
 import Loading from '../../components/Loading';
 
-export default function TopRatedMovies() {
+export default function Upcoming() {
     const moviesURL = import.meta.env.VITE_API;
     const apiKey = import.meta.env.VITE_API_KEY;
     const imageURL = import.meta.env.VITE_IMG;
 
-    const [topMovies, setTopMovies] = useState([])
+    const [upcomingMovies, setUpcomingMovies] = useState([])
 
-    const getTopRatedMovies = async (url) => {
+    const getUpcomingMovies = async (url) => {
         const res = await fetch(url)
         const data = await res.json()
 
-        setTopMovies(data.results)
+        setUpcomingMovies(data.results)
     }
 
     useEffect(() => {
-        const topRatedUrl = `${moviesURL}top_rated?${apiKey}&language=pt-BR`
-        getTopRatedMovies(topRatedUrl)
+        const upcomingUrl = `${moviesURL}upcoming?${apiKey}&language=pt-BR&region=BR`
+        getUpcomingMovies(upcomingUrl)
     }, [])
 
     return (
         <main className='container'>
-            <h1>Melhores filmes</h1>
-            {topMovies.length === 0 && (
+            <h1>Próximos lançamentos</h1>
+            {upcomingMovies.length === 0 && (
                 <Loading />
             )}
-            {topMovies.length > 0 && (
+            {upcomingMovies.length > 0 && (
                 <ul>
-                    {topMovies.map(item => (
+                    {upcomingMovies.map(item => (
                         <li key={item.id}>
                             <Link to={`/Details/${item.id}`} element={<Details />}>
                                 <img src={imageURL + item.poster_path} alt="Movie Poster" />
