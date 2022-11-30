@@ -9,7 +9,6 @@ import Details from '../Details';
 
 export default function Search() {
 
-    const searchURL = import.meta.env.VITE_SEARCH;
     const apiKey = import.meta.env.VITE_API_KEY;
     const imageURL = import.meta.env.VITE_IMG;
 
@@ -25,7 +24,7 @@ export default function Search() {
     }
     
     useEffect(() => {
-        const searchQueryUrl = `${searchURL}?${apiKey}&query=${query}&language=pt-BR&region=BR`
+        const searchQueryUrl = `https://api.themoviedb.org/3/search/movie/?${apiKey}&query=${query}&language=pt-BR&region=BR`
         
         getSearchedMovies(searchQueryUrl)
     }, [])
