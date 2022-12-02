@@ -73,12 +73,22 @@ header .search-bar button svg {
 
 @media (max-width: 1180px) {
     header {
-        width: 100vw;
+        width: 100%;
         flex-direction: column;
         gap: 2em;
     }
 
     header nav ul {
         flex-direction: column;
+    }
+
+    header .search-bar input {
+        width: 100vw;
+    }
+}
+
+@media (max-width: 915px) {
+    header .search-bar {
+        width: 100vw;
     }
 }
