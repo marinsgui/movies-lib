@@ -24,3 +24,13 @@ footer nav ul li svg:hover {
     transform: scale(110%);
     cursor: pointer;
 }
+
+@media (max-width: 1180px) {
+    footer {
+        position: relative;
+        bottom: 0;
+        width: 100vw;
+        flex-direction: column;
+        gap: 2em;
+    }
+}

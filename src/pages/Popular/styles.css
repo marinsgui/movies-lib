@@ -54,3 +54,9 @@
     font-weight: bold;
     color: #fff;
 }
+
+@media (max-width: 1180px) {
+    .container ul li {
+        margin: 1em;
+    }
+}

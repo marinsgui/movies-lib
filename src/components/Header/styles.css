@@ -70,3 +70,15 @@ header .search-bar button svg {
     height: 55%;
     color: #fff;
 }
+
+@media (max-width: 1180px) {
+    header {
+        width: 100vw;
+        flex-direction: column;
+        gap: 2em;
+    }
+
+    header nav ul {
+        flex-direction: column;
+    }
+}
