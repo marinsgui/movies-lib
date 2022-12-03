@@ -19,6 +19,6 @@
 <h2>Tecnologias utilizadas</h2>
 <p>- <a href='https://pt-br.reactjs.org/'>ReactJS</p>
 <p>- React Hooks</p>
-<p>- <a hreh='https://reactrouter.com/en/main'>React Router</p>
+<p>- <a href='https://reactrouter.com/en/main'>React Router</p>
 <p>- <a href='https://nodejs.org/'>[Node e NPM]<p>
 <p>- <a href='https://vitejs.dev/'>[Vite]</p>
