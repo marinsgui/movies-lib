@@ -91,4 +91,17 @@ header .search-bar button svg {
     header .search-bar {
         width: 100vw;
     }
+
+    header nav {
+        width: 100%;
+    }
+
+    header nav ul {
+        flex-direction: row;
+        gap: 1em;
+    }
+
+    header nav ul li {
+        font-size: 0.7em;
+    }
 }
