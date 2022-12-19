@@ -27,7 +27,7 @@ export default function Search() {
         const searchQueryUrl = `https://api.themoviedb.org/3/search/movie/?${apiKey}&query=${query}&language=pt-BR&region=BR`
         
         getSearchedMovies(searchQueryUrl)
-    }, [])
+    }, [query])
 
     return (
         <main className='container'>
