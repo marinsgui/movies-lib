@@ -1,17 +1,14 @@
-import './styles.css';
-
-import { Link } from 'react-router-dom';
+import style from '../../styles/GlobalStyles.module.css';
 
 import { useState, useEffect } from 'react';
 
-import Details from '../Details';
-import Loading from '../../components/Loading';
+import Loading from '../../components/Loading/Loading';
+import MovieCard from '../../components/MovieCard/MovieCard';
 
 export default function PopularMovies() {
 
     const moviesURL = import.meta.env.VITE_API;
     const apiKey = import.meta.env.VITE_API_KEY;
-    const imageURL = import.meta.env.VITE_IMG;
 
     const [popularMovies, setPopularMovies] = useState([]);
 
@@ -29,22 +26,15 @@ export default function PopularMovies() {
     }, [])
 
     return (
-        <main className='container'>
+        <main className={style.container}>
             <h1>Filmes populares</h1>
             {popularMovies.length === 0 && (
                 <Loading />
             )}
             {popularMovies.length > 0 && (
-                <ul>
+                <ul className={style.movies_container}>
                     {popularMovies.map(item => (
-                        <li key={item.id}>
-                            <Link to={`/details/${item.id}`} element={<Details />}>
-                                <img src={imageURL + item.poster_path} alt="Movie Poster" />
-                            </Link>
-                            <h2>{item.title}</h2>
-                            <p><span>Data de lançamento:</span> {item.release_date}</p>
-                            <p>&#x2B50; {item.vote_average}</p>
-                        </li>
+                        <MovieCard key={item.id} movie={item} />
                     ))}
                 </ul>
             )}

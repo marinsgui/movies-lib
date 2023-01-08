@@ -24,7 +24,7 @@ export default function Header() {
     return (
         <header>
             <Link to='/'>
-                <img src={logo} alt="Watchflix logo" />
+                <img src={logo} alt="MoviesLib logo" />
             </Link>
             
             <nav>

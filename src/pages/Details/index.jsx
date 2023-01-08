@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import './styles.css';
+
+import style from '../../styles/Details.module.css';
 
 
 export default function Details() {
@@ -26,9 +27,9 @@ export default function Details() {
     return (
         <main style={{backgroundImage: `url(${imageURL + movie.backdrop_path})` }}>
             <section>
-                <div className='details-container'>
+                <div className={style.details_container}>
                     <img src={imageURL + movie.poster_path} alt="Movie poster" />
-                    <div className='details'>
+                    <div className={style.details}>
                         <h2>{movie.title}</h2>
                         <p><span>Título original:</span> {movie.original_title}</p>
                         <p>&#x2B50; {movie.vote_average}</p>

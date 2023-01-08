@@ -1,0 +1,34 @@
+.container {
+    background-color: #262626;
+}
+
+.container h1 {
+    text-align: center;
+    font-size: 2.5em;
+    color: #fff;
+    padding-top: 20px;
+}
+
+.movies_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+@media (max-width: 1180px) {
+    .container ul li {
+        margin: 1em;
+    }
+}
+
+@media (max-width: 915px) {
+    .movies_container {
+        margin: auto;
+    }
+
+    .movies_container li {
+        margin: 1em auto;
+    }
+}

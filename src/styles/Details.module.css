@@ -13,7 +13,7 @@ section {
     backdrop-filter: blur(5px);
 }
 
-.details-container {
+.details_container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -23,23 +23,23 @@ section {
     margin: 0 auto;
 }
 
-.details-container img {
+.details_container img {
     border-radius: 10px;
     box-shadow: 0px 0px 1px #000;
 }
 
-.details-container h2 {
+.details_container h2 {
     font-size: 2em;
     color: #000;
 }
 
-.details-container p {
+.details_container p {
     font-size: 1.2em;
     color: #000;
     text-align: justify;
 }
 
-.details-container span {
+.details_container span {
     font-weight: bold;
     color: #000;
 }
@@ -54,11 +54,11 @@ section {
 }
 
 @media (max-width: 915px) {
-    .details-container {
+    .details_container {
         width: 100vw;
     }
 
-    .details-container img {
+    .details_container img {
         width: 90vw;
     }
 
