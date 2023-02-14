@@ -32,6 +32,11 @@ header nav ul li .link:hover {
     border-bottom: 2px solid #ccc;
 }
 
+header nav ul li .link.active {
+    background-color: #7b26c16c;
+    padding: 10px;
+}
+
 header .search-bar {
     display: flex;
     align-items: center;

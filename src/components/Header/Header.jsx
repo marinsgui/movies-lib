@@ -1,6 +1,6 @@
 import './styles.css';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
 import { FaSearch } from 'react-icons/fa';
@@ -23,23 +23,23 @@ export default function Header() {
 
     return (
         <header>
-            <Link to='/'>
+            <NavLink to='/'>
                 <img src={logo} alt="MoviesLib logo" />
-            </Link>
+            </NavLink>
             
             <nav>
                 <ul>
                     <li>
-                        <Link to='/popular' className='link'>Filmes populares</Link>
+                        <NavLink to='/popular' className='link'>Filmes populares</NavLink>
                     </li>
                     <li>
-                        <Link to='/topratedmovies' className='link'>Melhores filmes</Link>
+                        <NavLink to='/topratedmovies' className='link'>Melhores filmes</NavLink>
                     </li>
                     <li>
-                        <Link to='/upcoming' className='link'>Próximos lançamentos</Link>
+                        <NavLink to='/upcoming' className='link'>Próximos lançamentos</NavLink>
                     </li>
                     <li>
-                        <Link to='/nowplaying' className='link'>Filmes em cartaz</Link>
+                        <NavLink to='/nowplaying' className='link'>Filmes em cartaz</NavLink>
                     </li>
                 </ul>
             </nav>
