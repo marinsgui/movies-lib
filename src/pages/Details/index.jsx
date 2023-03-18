@@ -17,6 +17,7 @@ export default function Details() {
         const data = await res.json()
 
         setMovie(data)
+        console.log(data)
     }
 
     useEffect(() => {
@@ -25,15 +26,21 @@ export default function Details() {
     }, [])
     
     return (
-        <main style={{backgroundImage: `url(${imageURL + movie.backdrop_path})` }}>
+        <main className={style.container}>
             <section>
-                <div className={style.details_container}>
-                    <img src={imageURL + movie.poster_path} alt="Movie poster" />
-                    <div className={style.details}>
+                <div className={style.movie_info}>
+                    <div className={style.infos}>
                         <h2>{movie.title}</h2>
                         <p><span>Título original:</span> {movie.original_title}</p>
-                        <p>&#x2B50; {movie.vote_average}</p>
                         <p><span>Duração:</span> {movie.runtime} min.</p>
+                    </div>
+                    <div className={style.rating}>
+                        <p>&#x2B50; {movie.vote_average}</p>
+                    </div>
+                </div>
+                <div className={style.details_container}>
+                    <img src={imageURL + movie.poster_path} alt={movie.title} />
+                    <div className={style.overview}>
                         <p><span>Sinopse:</span> {movie.overview}</p>
                     </div>
                 </div>
