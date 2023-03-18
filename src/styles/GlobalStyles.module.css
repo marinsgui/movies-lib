@@ -11,10 +11,14 @@
 
 .movies_container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    gap: 2em 1em;
     list-style: none;
+    width: 80%;
+    margin: 0 auto;
+    padding: 5em 0;
 }
 
 @media (max-width: 1180px) {

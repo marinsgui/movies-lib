@@ -1,7 +1,5 @@
 import style from '../../styles/MovieCard.module.css';
 
-import Details from '../../pages/Details';
-
 import { Link } from 'react-router-dom';
 
 export default function MovieCard({ movie }) {
@@ -10,12 +8,20 @@ export default function MovieCard({ movie }) {
 
     return (
         <li className={style.card_container}>
-            <Link to={`/Details/${movie.id}`} element={<Details />}>
-                <img src={imageURL + movie.poster_path} alt="Movie Poster" />
-            </Link>
-            <h2 className={style.card_title}>{movie.title}</h2>
-            <p className={style.card_info}><span>Data de lançamento:</span> {movie.release_date}</p>
-            <p className={style.card_info}>&#x2B50; {movie.vote_average}</p>
+            <div className={style.card_img}>
+                <img src={imageURL + movie.poster_path} alt={movie.title} />
+            </div>
+            <div className={style.card_info}>
+                <h2 className={style.card_title}>{movie.title}</h2>
+                <p className={style.text_title}><span>Data de lançamento:</span> {movie.release_date}</p>
+                <p className={style.text_body}>&#x2B50; {movie.vote_average}</p>
+                <Link 
+                    to={`/details/${movie.id}`} 
+                    className={style.card_button}
+                >
+                    Veja mais
+                </Link>
+            </div>
         </li>
     )
 }
