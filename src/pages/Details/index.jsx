@@ -35,9 +35,9 @@ export default function Details() {
                         <img src={imageURL + movie.poster_path} alt={movie.title} />
                         <h3>&#x2B50; {movie.vote_average}</h3>
                         <p><span>Duração:</span> {movie.runtime} min.</p>
-                        <p>{movie?.genres?.[0].name}</p>
-                        <p>{movie?.genres?.[1].name}</p>
-                        <p>{movie?.genres?.[2].name}</p>
+                        {movie.genres && <p>{movie.genres[0].name}</p>}
+                        {movie.genres?.[1] && <p>{movie.genres[1].name}</p>}
+                        {movie.genres?.[2] && <p>{movie.genres[2].name}</p>}
                     </div>
                     <p>{movie.overview}</p>
                 </div>
