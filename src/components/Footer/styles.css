@@ -1,6 +1,6 @@
 footer {
     background-color: #471AA0;
-    position: relative;
+    position: static;
     bottom: 0;
 }
 

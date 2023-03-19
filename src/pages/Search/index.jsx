@@ -9,6 +9,7 @@ import MovieCard from '../../components/MovieCard/MovieCard';
 export default function Search() {
 
     const apiKey = import.meta.env.VITE_API_KEY;
+    const searchUrl = import.meta.env.VITE_SEARCH;
 
     const [searchParams] = useSearchParams();
     const [movies, setMovies] = useState([]);
@@ -22,7 +23,7 @@ export default function Search() {
     }
     
     useEffect(() => {
-        const searchQueryUrl = `https://api.themoviedb.org/3/search/movie/?${apiKey}&query=${query}&language=pt-BR&region=BR`
+        const searchQueryUrl = `${searchUrl}?${apiKey}&query=${query}&language=pt-BR&region=BR`
         
         getSearchedMovies(searchQueryUrl)
     }, [query])
@@ -30,10 +31,10 @@ export default function Search() {
     return (
         <main className={style.container}>
             <h1>Resultados para: {query}</h1>
-            {movies.length === 0 && (
+            {!movies && movies.length === 0 && (
                 <Loading />
             )}
-            {movies.length > 0 && (
+            {movies && movies.length > 0 && (
                 <ul className={style.movies_container}>
                     {movies.map(item => (
                         <MovieCard key={item.id} movie={item} />
