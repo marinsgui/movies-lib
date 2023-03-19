@@ -1,92 +1,60 @@
-.container {
+.movie_details {
     height: 77.3vh;
-    padding: 5em;
+    padding: 5em 1em;
     background-color: #262626;
 }
 
-.container section {
-    height: 60vh;
-    width: 70%;
-    margin: auto;
-    padding: 1em;
+.movie_details section {
+    max-width: 800px;
+    margin: 0 auto;
     color: #fff;
-    border-radius: 50px;
-    box-shadow:  -20px -20px 60px #000,
-             20px 20px 60px #000;
+}
+
+.movie_header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.movie_header h2 {
+    margin: 0;
+    font-size: 40px;
+}
+
+.movie_info img {
+    width: 200px;
+    height: 300px;
+    border-radius: 1em;
 }
 
 .movie_info {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10em;
-}
-
-.infos h2 {
-    font-size: 2em;
-}
-
-.infos span, .details_container span {
-    font-weight: bold;
-    background-color: #471AA0;
-    padding: 0.3em;
-    border-radius: 10px;
-}
-
-.rating {
-    font-size: 1.5em;
-}
-
-.details_container {
-    display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     gap: 1em;
-    padding: 1em;
-    width: 50em;
-    margin: 0 auto;
 }
 
-.details_container img {
-    width: 15em;
+.movie_info > p {
+    margin-top: -10em;
+    font-size: 1.2em;
+}
+
+.movie_info div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.movie_info div p {
+    background-color: #471AA0;
     border-radius: 1em;
+    padding: 0.5em;
+    margin: 0.5em 0;
 }
 
-.overview {
-    font-size: 1.5em;
+.movie_info span {
+    font-weight: bold;
 }
-
-@media (max-width: 767px) {
-    .container {
-        height: 100vh;
-        padding: 1em;
-    }
-
-    .container section {
-        height: 100%;
-        width: 100%;
-        padding: 1em;
-    }
-
-    .movie_info {
-        flex-direction: column;
-        gap: unset;
-    }
-
-    .infos {
-        font-size: unset;
-    }
-
-    .details_container {
-        flex-direction: column;
-        width: unset;
-    }
-
-    .details_container img {
-        width: 70%;
-    }
-
-    .overview {
-        font-size: 0.9em;
-    }
-}
+  
