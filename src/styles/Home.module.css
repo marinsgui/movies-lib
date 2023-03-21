@@ -11,13 +11,11 @@
     width: 50%;
 }
 
-@media (max-width: 1180px) {
-    .homepage img {
-        width: 80%;
+@media (max-width: 767px) {
+    .homepage {
+        min-height: 77vh;
     }
-}
 
-@media (max-width: 915px) {
     .homepage img {
         width: 100%;
     }

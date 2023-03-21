@@ -25,7 +25,7 @@ footer nav ul li svg:hover {
     cursor: pointer;
 }
 
-@media (max-width: 1180px) {
+@media (max-width: 767px) {
     footer {
         position: relative;
         bottom: 0;
