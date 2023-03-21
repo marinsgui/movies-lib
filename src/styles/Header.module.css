@@ -36,12 +36,12 @@ header nav ul li .link.active {
     border-bottom: 2px solid #fff;
 }
 
-header .search-bar {
+header .search_bar {
     display: flex;
     align-items: center;
 }
 
-header .search-bar input {
+header .search_bar input {
     width: 300px;
     height: 30px;
     padding: 10px;
@@ -53,15 +53,15 @@ header .search-bar input {
     color: #fff;
 }
 
-header .search-bar input:focus {
+header .search_bar input:focus {
     border-bottom: 2px solid #fff;
 }
 
-header .search-bar input::placeholder {
+header .search_bar input::placeholder {
     color: rgba(255, 255, 255, 0.757);
 }
 
-header .search-bar button {
+header .search_bar button {
     height: 30px;
     width: 50px;
     background-color: transparent;
@@ -69,7 +69,7 @@ header .search-bar button {
     cursor: pointer;
 }
 
-header .search-bar button svg {
+header .search_bar button svg {
     width: 55%;
     height: 55%;
     color: #fff;
@@ -95,13 +95,13 @@ header .search-bar button svg {
         font-size: 0.5em;
     }
 
-    header .search-bar input {
+    header .search_bar input {
         width: 80vw;
         font-size: 0.8em;
         height: 1em;
     }
 
-    header .search-bar button {
+    header .search_bar button {
         height: 2em;
     }
 }

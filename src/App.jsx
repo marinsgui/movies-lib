@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
 import './App.css';
 
@@ -15,8 +15,7 @@ import NowPlaying from './pages/NowPlaying';
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
+    <>
         <Header />
         <Routes>
           <Route exact path='/' element={<Home />} />
@@ -28,8 +27,7 @@ function App() {
           <Route path='/search' element={<Search />} />
         </Routes>
         <Footer />
-      </BrowserRouter>
-    </div>
+    </>
   )
 }
 

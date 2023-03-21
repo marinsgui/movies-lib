@@ -1,6 +1,7 @@
-import './styles.css';
+import style from '../../styles/Header.module.css';
 
 import { NavLink, useNavigate } from 'react-router-dom';
+
 import { useState } from 'react';
 
 import { FaSearch } from 'react-icons/fa';
@@ -30,21 +31,21 @@ export default function Header() {
             <nav>
                 <ul>
                     <li>
-                        <NavLink to='/popular' className='link'>Filmes populares</NavLink>
+                        <NavLink to='/popular' className={style.link}>Filmes populares</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/topratedmovies' className='link'>Melhores filmes</NavLink>
+                        <NavLink to='/topratedmovies' className={style.link}>Melhores filmes</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/upcoming' className='link'>Próximos lançamentos</NavLink>
+                        <NavLink to='/upcoming' className={style.link}>Próximos lançamentos</NavLink>
                     </li>
                     <li>
-                        <NavLink to='/nowplaying' className='link'>Filmes em cartaz</NavLink>
+                        <NavLink to='/nowplaying' className={style.link}>Filmes em cartaz</NavLink>
                     </li>
                 </ul>
             </nav>
             
-            <form className="search-bar" onSubmit={handleSubmit}>
+            <form className={style.search_bar} onSubmit={handleSubmit}>
                 <input 
                 type="text" 
                 placeholder='Faça a sua busca'
