@@ -1,20 +1,18 @@
-import style from '../../styles/Footer.module.css';
-
 import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
 
 export default function Footer() {
     return (
-        <footer className={style.footer}>
+        <footer className='bg-purple-800 static bottom-0'>
             <nav>
-                <ul>
+                <ul className='list-none h-16 flex justify-center items-center gap-5'>
                     <li>
-                        <FaFacebook />
+                        <FaFacebook className='text-white h-6 w-6 transition-all hover:scale-125 cursor-pointer' />
                     </li>
                     <li>
-                        <FaInstagram />
+                        <FaInstagram className='text-white h-6 w-6 transition-all hover:scale-125 cursor-pointer' />
                     </li>
                     <li>
-                        <FaTwitter />
+                        <FaTwitter className='text-white h-6 w-6 transition-all hover:scale-125 cursor-pointer' />
                     </li>
                 </ul>
             </nav>
