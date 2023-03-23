@@ -3,7 +3,7 @@ import { useContext, createContext, useEffect, useState } from 'react'
 const ThemeContext = createContext()
 
 export default function ThemeContextProvider({ children }) {
-    const [theme, setTheme] = useState(localStorage.getItem('theme' ?? 'light'))
+    const [theme, setTheme] = useState(localStorage.getItem('theme') !== 'dark' ? 'light' : 'dark')
 
     useEffect(() => {
         const root = document.documentElement
