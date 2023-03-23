@@ -9,15 +9,18 @@ export default function Search() {
     const apiKey = import.meta.env.VITE_API_KEY;
     const searchUrl = import.meta.env.VITE_SEARCH;
 
-    const [searchParams] = useSearchParams();
-    const [movies, setMovies] = useState([]);
+    const [searchParams] = useSearchParams()
+    const [movies, setMovies] = useState([])
+    const [loading, setLoading] = useState(false)
     const query = searchParams.get('q');
 
     const getSearchedMovies = async (url) => {
+        setLoading(true)
         const res = await fetch(url)
         const data = await res.json()
 
         setMovies(data.results)
+        setLoading(false)
     }
     
     useEffect(() => {
@@ -29,7 +32,7 @@ export default function Search() {
     return (
         <main className='bg-gray-800 min-h-screen'>
             <h1 className='text-center text-5xl text-white pt-5'>Resultados para: {query}</h1>
-            {!movies && (
+            {loading && (
                 <Loading />
             )}
             {movies && (
