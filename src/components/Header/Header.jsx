@@ -2,11 +2,15 @@ import { NavLink, useNavigate } from 'react-router-dom';
 
 import { useState } from 'react';
 
-import { FaSearch } from 'react-icons/fa';
+import { FaSearch, FaSun, FaMoon } from 'react-icons/fa';
 
 import logo from '../../assets/movies-lib-logo.svg';
 
+import { useTheme } from '../../hooks/useTheme'
+
 export default function Header() {
+
+    const { theme, setTheme } = useTheme()
 
     const navigate = useNavigate()
     const [search, setSearch] = useState('')
@@ -55,6 +59,13 @@ export default function Header() {
                     <FaSearch className='w-2/3 h-2/3 text-white' />
                 </button>
             </form>
+
+            {theme === 'light' && (
+                <FaMoon size={25} title='Adicionar modo escuro' className='text-white cursor-pointer' onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
+            )}
+            {theme === 'dark' && (
+                <FaSun size={25} title='Adicionar modo claro' className='text-white cursor-pointer' onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
+            )}
         </header>
     )
 }

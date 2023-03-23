@@ -1,9 +1,0 @@
-@media (max-width: 767px) {
-    .footer {
-        position: relative;
-        bottom: 0;
-        width: 100vw;
-        flex-direction: column;
-        gap: 2em;
-    }
-}

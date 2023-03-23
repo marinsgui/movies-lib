@@ -1,9 +1,0 @@
-@media (max-width: 767px) {
-    .homepage {
-        min-height: 77vh;
-    }
-
-    .homepage img {
-        width: 100%;
-    }
-}

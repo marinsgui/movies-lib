@@ -30,8 +30,8 @@ export default function Search() {
     }, [query])
 
     return (
-        <main className='bg-gray-800 min-h-screen'>
-            <h1 className='text-center text-5xl text-white pt-5'>Resultados para: {query}</h1>
+        <main className='bg-slate-100 dark:bg-gray-800 min-h-screen'>
+            <h1 className='text-center text-5xl text-black dark:text-white pt-5'>Resultados para: {query}</h1>
             {loading && (
                 <Loading />
             )}

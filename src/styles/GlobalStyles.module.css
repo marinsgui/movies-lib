@@ -1,9 +1,0 @@
-@media (max-width: 767px) {
-    .movies_container {
-        margin: auto;
-    }
-
-    .movies_container li {
-        margin: 1em auto;
-    }
-}
