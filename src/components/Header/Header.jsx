@@ -30,7 +30,7 @@ export default function Header() {
 
 
     return (
-        <header className='w-full md:sticky top-0 z-10 bg-purple-800 flex flex-col md:flex-row justify-around items-center shadow-md p-2 md:p-0'>
+        <header className='w-full sticky top-0 z-10 bg-purple-800 flex flex-col md:flex-row justify-around items-center shadow-md p-2 md:p-0'>
             <div className='flex justify-around gap-10 items-center mb-4'>
                 <NavLink to='/'>
                     <img src={logo} alt="MoviesLib logo" className='w-32 md:w-40' />
