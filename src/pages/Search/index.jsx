@@ -1,5 +1,3 @@
-import style from '../../styles/GlobalStyles.module.css';
-
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
@@ -29,13 +27,13 @@ export default function Search() {
     }, [query])
 
     return (
-        <main className={style.container}>
-            <h1>Resultados para: {query}</h1>
-            {!movies && movies.length === 0 && (
+        <main className='bg-gray-800 min-h-screen'>
+            <h1 className='text-center text-5xl text-white pt-5'>Resultados para: {query}</h1>
+            {!movies && (
                 <Loading />
             )}
-            {movies && movies.length > 0 && (
-                <ul className={style.movies_container}>
+            {movies && (
+                <ul className='flex justify-around items-center flex-wrap gap-y-8 gap-x-6 w-4/5 mx-auto py-20'>
                     {movies.map(item => (
                         <MovieCard key={item.id} movie={item} />
                     ))}

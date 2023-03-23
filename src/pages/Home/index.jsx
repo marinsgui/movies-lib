@@ -1,11 +1,9 @@
-import style from '../../styles/Home.module.css';
-
 import image from '../../assets/home-cinema-animate.svg';
 
 export default function Home() {
     return (
-        <main className={style.homepage}>
-            <img src={image} />
+        <main className='flex justify-center items-center gap-5 p-4 bg-gray-800'>
+            <img src={image} className='w-1/2' />
         </main>
     )
 }

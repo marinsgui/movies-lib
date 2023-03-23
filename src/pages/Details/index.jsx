@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import style from '../../styles/Details.module.css';
-
 export default function Details() {
     const moviesURL = import.meta.env.VITE_API;
     const apiKey = import.meta.env.VITE_API_KEY;
@@ -24,22 +22,22 @@ export default function Details() {
     }, [])
     
     return (
-        <main className={style.movie_details}>
-            <section>
-                <div className={style.movie_header}>
-                    <h2>{movie.title}</h2>
-                    <p><span>Título original:</span> {movie.original_title}</p>
+        <main className='h-screen py-40 px-4 bg-gray-800'>
+            <section className='max-w-4xl mx-auto text-white'>
+                <div className='flex flex-col justify-between items-center mb-5'>
+                    <h2 className='m-0 text-4xl'>{movie.title}</h2>
+                    <p><span className='font-bold'>Título original:</span> {movie.original_title}</p>
                 </div>
-                <div className={style.movie_info}>
-                    <div>
-                        <img src={imageURL + movie.poster_path} alt={movie.title} />
+                <div className='flex justify-around items-center gap-4'>
+                    <div className='flex flex-col items-start w-3/4'>
+                        <img src={imageURL + movie.poster_path} alt={movie.title} className='rounded-2xl' />
                         <h3>&#x2B50; {movie.vote_average}</h3>
-                        <p><span>Duração:</span> {movie.runtime} min.</p>
-                        {movie.genres && <p>{movie.genres[0].name}</p>}
-                        {movie.genres?.[1] && <p>{movie.genres[1].name}</p>}
-                        {movie.genres?.[2] && <p>{movie.genres[2].name}</p>}
+                        <p><span className='font-bold'>Duração:</span> {movie.runtime} min.</p>
+                        {movie.genres && <p className='bg-purple-800 rounded-2xl p-2 my-2'>{movie.genres[0].name}</p>}
+                        {movie.genres?.[1] && <p className='bg-purple-800 rounded-2xl p-2 my-2'>{movie.genres[1].name}</p>}
+                        {movie.genres?.[2] && <p className='bg-purple-800 rounded-2xl p-2 my-2'>{movie.genres[2].name}</p>}
                     </div>
-                    <p>{movie.overview}</p>
+                    <p className='-mt-40 text-xl'>{movie.overview}</p>
                 </div>
             </section>
         </main>
