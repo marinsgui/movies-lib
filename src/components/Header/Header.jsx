@@ -6,11 +6,15 @@ import { FaSearch, FaSun, FaMoon } from 'react-icons/fa';
 
 import logo from '../../assets/movies-lib-logo.svg';
 
-import { useTheme } from '../../hooks/useTheme'
+import { useTheme } from '../../hooks/useTheme';
+
+import NavLinks from '../NavLinks/NavLinks';
+import HamburgerMenu from '../HamburgerMenu/HamburgerMenu';
 
 export default function Header() {
 
     const { theme, setTheme } = useTheme()
+    const [showLinks, setShowLinks] = useState(false)
 
     const navigate = useNavigate()
     const [search, setSearch] = useState('')
@@ -24,27 +28,27 @@ export default function Header() {
         setSearch('')
     }
 
+
     return (
         <header className='w-full md:sticky top-0 z-10 bg-purple-800 flex flex-col md:flex-row justify-around items-center shadow-md p-2 md:p-0'>
-            <NavLink to='/'>
-                <img src={logo} alt="MoviesLib logo" className='w-32 md:w-40' />
-            </NavLink>
+            <div className='flex justify-around gap-10 items-center mb-4'>
+                <NavLink to='/'>
+                    <img src={logo} alt="MoviesLib logo" className='w-32 md:w-40' />
+                </NavLink>
+
+                <HamburgerMenu className='md:hidden text-white h-10 w-5' handleClick={() => setShowLinks(!showLinks)} />
+
+                {theme === 'light' && (
+                    <FaMoon size={25} title='Adicionar modo escuro' className='text-white cursor-pointer md:hidden' onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
+                )}
+                {theme === 'dark' && (
+                    <FaSun size={25} title='Adicionar modo claro' className='text-white cursor-pointer md:hidden' onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
+                )}
+            </div>
             
             <nav>
-                <ul className='list-none flex justify-between items-center p-4 gap-2 md:gap-8'>
-                    <li>
-                        <NavLink to='/popular' className='font-bold text-xs md:text-base text-white hover:text-gray-300 active:border-b-2 border-gray-300'>Filmes populares</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/topratedmovies' className='font-bold text-xs md:text-base text-white hover:text-gray-300 active:border-b-2 border-gray-300'>Melhores filmes</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/upcoming' className='font-bold text-xs md:text-base text-white hover:text-gray-300 active:border-b-2 border-gray-300'>Próximos lançamentos</NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/nowplaying' className='font-bold text-xs md:text-base text-white hover:text-gray-300 active:border-b-2 border-gray-300'>Filmes em cartaz</NavLink>
-                    </li>
-                </ul>
+                <NavLinks className='hidden md:flex' />
+                {showLinks && <NavLinks className='flex-col' />}
             </nav>
             
             <form className='flex items-center' onSubmit={handleSubmit}>
@@ -61,10 +65,10 @@ export default function Header() {
             </form>
 
             {theme === 'light' && (
-                <FaMoon size={25} title='Adicionar modo escuro' className='text-white cursor-pointer' onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
+                <FaMoon size={25} title='Adicionar modo escuro' className='text-white cursor-pointer hidden md:block' onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
             )}
             {theme === 'dark' && (
-                <FaSun size={25} title='Adicionar modo claro' className='text-white cursor-pointer' onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
+                <FaSun size={25} title='Adicionar modo claro' className='text-white cursor-pointer hidden md:block' onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
             )}
         </header>
     )
