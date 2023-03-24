@@ -11,14 +11,15 @@
 
 <h2>Resumo</h2>
 <p>Este projeto consiste em uma biblioteca de filmes, mostrando os filmes mais populares, próximos lançamentos, filmes com as maiores notas e os filmes em cartaz.</p>
-<p>O projeto foi feito com React, React Hooks e React Router, além de utilizar a API do TMDB</p>
+<p>O projeto foi feito com React, React Hooks, React Router e TailwindCSS, além de utilizar a API do TMDB</p>
 
 <h2>Motivação</h2>
-<p>O propósito desse projeto foi me familiarizar com React, React Router e também para praticar requisição de dados de API.</p>
+<p>O propósito desse projeto foi me familiarizar com React, React Router, TailwindCSS e também para praticar requisição de dados de API.</p>
 
 <h2>Tecnologias utilizadas</h2>
 <p>- <a href='https://pt-br.reactjs.org/'>ReactJS</p>
 <p>- React Hooks</p>
 <p>- <a href='https://reactrouter.com/en/main'>React Router</p>
+<p>- <a href='https://tailwindcss.com/'>TailwindCSS</p>
 <p>- <a href='https://nodejs.org/'>[Node e NPM]<p>
 <p>- <a href='https://vitejs.dev/'>[Vite]</p>
