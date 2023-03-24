@@ -6,7 +6,7 @@
 
 <p><a href='https://movies-lib-blond.vercel.app/'>Acesse aqui.</p>
 
-![image](https://user-images.githubusercontent.com/106755788/205447679-9ccb0440-afc5-46b3-bfa2-b32e8651e17e.png)
+![image](https://user-images.githubusercontent.com/106755788/227419296-6be85062-2b20-4ad6-8821-430706f21636.png)
 
 
 <h2>Resumo</h2>
