@@ -27,7 +27,7 @@ export default function Details() {
     }, [])
     
     return (
-        <main className='min-h-screen md:py-40 px-4 bg-slate-100 dark:bg-gray-800'>
+        <main className='min-h-[90vh] md:py-8 px-4 bg-slate-100 dark:bg-gray-800'>
             {loading && (
                 <Loading />
             )}
