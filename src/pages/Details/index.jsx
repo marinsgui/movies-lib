@@ -43,14 +43,7 @@ export default function Details() {
       {loading && <Loading />}
 
       {movie && (
-        <section className="flex flex-col justify-end max-w-4xl h-[80vh] text-white">
-          <div className="md:flex md:flex-col md:items-center">
-            <h2 className="text-6xl text-center my-5">{movie.title}</h2>
-            <p>
-              <span className="font-bold">Título original:</span>{" "}
-              {movie.original_title}
-            </p>
-          </div>
+        <section className="flex flex-col justify-end max-w-6xl h-[80vh] text-white">
           <div className="md:flex md:justify-around md:items-end md:gap-4">
             <div className="flex flex-col items-start md:min-w-[30%]">
               <img
@@ -60,6 +53,15 @@ export default function Details() {
               />
             </div>
             <div className="flex flex-col justify-around items-start">
+              <div className="md:flex md:flex-col md:items-center">
+                <h2 className="text-6xl text-center font-bold my-5">
+                  {movie.title}
+                </h2>
+                <p>
+                  <span className="font-bold">Título original:</span>{" "}
+                  {movie.original_title}
+                </p>
+              </div>
               <div className="flex items-center my-5">
                 <div className="mr-5">
                   <h3>&#x2B50; {movie.vote_average}</h3>

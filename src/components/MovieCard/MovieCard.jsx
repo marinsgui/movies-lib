@@ -5,7 +5,7 @@ export default function MovieCard({ movie }) {
 
   return (
     <Link to={`/details/${movie.id}`}>
-      <li className='w-72 h-96 rounded-2xl relative flex items-end duration-500 shadow-lg shadow-black before:content-[""] before:absolute before:top-0 before:left-0 before:block before:w-full before:h-full before:z-10 before:duration-500 before:rounded-2xl hover:translate-y-5 hover:before:opacity-100 hover:before:bg-[#00000096] group'>
+      <li className='w-80 h-96 rounded-2xl relative flex items-end duration-500 shadow-lg shadow-black before:content-[""] before:absolute before:top-0 before:left-0 before:block before:w-full before:h-full before:z-10 before:duration-500 before:rounded-2xl hover:translate-y-5 hover:before:opacity-100 hover:before:bg-[#00000096] group'>
         <div className="w-full h-full absolute top-0 left-0">
           <img
             src={imageURL + movie.poster_path}
