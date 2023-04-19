@@ -1,47 +1,46 @@
-import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
-import Loading from '../../components/Loading/Loading';
-import MovieCard from '../../components/MovieCard/MovieCard';
+import Loading from "../../components/Loading/Loading";
+import MovieCard from "../../components/MovieCard/MovieCard";
 
 export default function Search() {
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const searchUrl = import.meta.env.VITE_SEARCH;
 
-    const apiKey = import.meta.env.VITE_API_KEY;
-    const searchUrl = import.meta.env.VITE_SEARCH;
+  const [searchParams] = useSearchParams();
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const query = searchParams.get("q");
 
-    const [searchParams] = useSearchParams()
-    const [movies, setMovies] = useState([])
-    const [loading, setLoading] = useState(false)
-    const query = searchParams.get('q');
+  const getSearchedMovies = async (url) => {
+    setLoading(true);
+    const res = await fetch(url);
+    const data = await res.json();
 
-    const getSearchedMovies = async (url) => {
-        setLoading(true)
-        const res = await fetch(url)
-        const data = await res.json()
+    setMovies(data.results);
+    setLoading(false);
+  };
 
-        setMovies(data.results)
-        setLoading(false)
-    }
-    
-    useEffect(() => {
-        const searchQueryUrl = `${searchUrl}?${apiKey}&query=${query}&language=pt-BR&region=BR`
-        
-        getSearchedMovies(searchQueryUrl)
-    }, [query])
+  useEffect(() => {
+    const searchQueryUrl = `${searchUrl}?${apiKey}&query=${query}&language=pt-BR&region=BR`;
 
-    return (
-        <main className='bg-slate-100 dark:bg-gray-800 min-h-screen'>
-            <h1 className='text-center text-5xl text-black dark:text-white pt-5'>Resultados para: {query}</h1>
-            {loading && (
-                <Loading />
-            )}
-            {movies && (
-                <ul className='flex justify-around items-center flex-wrap gap-y-8 gap-x-6 w-4/5 mx-auto py-20'>
-                    {movies.map(item => (
-                        <MovieCard key={item.id} movie={item} />
-                    ))}
-                </ul>
-            )}
-        </main>
-    )
+    getSearchedMovies(searchQueryUrl);
+  }, [query]);
+
+  return (
+    <main className="bg-slate-100 dark:bg-gray-800 min-h-screen">
+      <h1 className="text-center text-5xl text-black dark:text-white pt-5">
+        Resultados para: {query}
+      </h1>
+      {loading && <Loading />}
+      {movies && (
+        <ul className="flex justify-around items-center flex-wrap gap-y-8 gap-x-6 w-4/5 mx-auto py-20">
+          {movies.map((item) => (
+            <MovieCard key={item.id} movie={item} />
+          ))}
+        </ul>
+      )}
+    </main>
+  );
 }
