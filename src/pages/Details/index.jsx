@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { AiOutlineClockCircle } from "react-icons/ai";
 
 import Loading from "../../components/Loading/Loading";
+import CategoryItem from "../../components/CategoryItem/CategoryItem";
 
 export default function Details() {
   const moviesURL = import.meta.env.VITE_API;
@@ -30,7 +31,7 @@ export default function Details() {
 
   return (
     <main
-      className="min-h-[90vh] md:py-8 px-4 bg-slate-100 dark:bg-gray-800"
+      className="min-h-screen md:min-h-[90vh] md:py-8 p-4 bg-slate-100 dark:bg-gray-800"
       style={{
         backgroundImage: `linear-gradient(to right, rgba(0, 0, 0), rgba(0, 0, 0, 0.5)), url(${
           imageURL + movie.backdrop_path
@@ -43,18 +44,18 @@ export default function Details() {
       {loading && <Loading />}
 
       {movie && (
-        <section className="flex flex-col justify-end max-w-6xl h-[80vh] text-white">
+        <section className="flex flex-col justify-end max-w-6xl md:h-[80vh] text-white">
           <div className="md:flex md:justify-around md:items-end md:gap-4">
-            <div className="flex flex-col items-start md:min-w-[30%]">
+            <div className="flex flex-col items-start w-52 m-auto md:min-w-[30%]">
               <img
                 src={imageURL + movie.poster_path}
                 alt={movie.title}
                 className="rounded-2xl"
               />
             </div>
-            <div className="flex flex-col justify-around items-start">
+            <div className="flex flex-col justify-around items-center md:items-start">
               <div className="md:flex md:flex-col md:items-center">
-                <h2 className="text-6xl text-center font-bold my-5">
+                <h2 className="text-4xl md:text-6xl text-center font-bold my-5">
                   {movie.title}
                 </h2>
                 <p>
@@ -73,21 +74,17 @@ export default function Details() {
                     {movie.runtime} min.
                   </p>
                 </div>
-                {movie.genres && (
-                  <p className="bg-purple-800 rounded-2xl p-2 mx-2 text-white">
-                    {movie.genres[0].name}
-                  </p>
-                )}
-                {movie.genres?.[1] && (
-                  <p className="bg-purple-800 rounded-2xl p-2 mx-2 text-white">
-                    {movie.genres[1].name}
-                  </p>
-                )}
-                {movie.genres?.[2] && (
-                  <p className="bg-purple-800 rounded-2xl p-2 mx-2 text-white">
-                    {movie.genres[2].name}
-                  </p>
-                )}
+                <div className="flex flex-col md:flex-row gap-1">
+                  {movie.genres && (
+                    <CategoryItem>{movie.genres[0].name}</CategoryItem>
+                  )}
+                  {movie.genres?.[1] && (
+                    <CategoryItem>{movie.genres[1].name}</CategoryItem>
+                  )}
+                  {movie.genres?.[2] && (
+                    <CategoryItem>{movie.genres[2].name}</CategoryItem>
+                  )}
+                </div>
               </div>
               <p className="text-xl">{movie.overview}</p>
             </div>
