@@ -4,13 +4,13 @@ import { useState } from "react";
 
 import { FaSearch, FaSun, FaMoon, FaWindowClose } from "react-icons/fa";
 
-import logo from "../../assets/movies-lib-logo.svg";
+import logo from "../assets/movies-lib-logo.svg";
 
-import { useTheme } from "../../hooks/useTheme";
+import { useTheme } from "../hooks/useTheme";
 
-import NavLinks from "../NavLinks/NavLinks";
+import NavLinks from "./NavLinks";
 
-import HamburgerMenu from "../HamburgerMenu/HamburgerMenu";
+import HamburgerMenu from "./HamburgerMenu";
 
 export default function Header() {
   const { theme, setTheme } = useTheme();
@@ -30,13 +30,17 @@ export default function Header() {
 
   return (
     <header className="w-full sticky top-0 z-10 bg-purple-800 flex flex-col md:flex-row justify-around items-center shadow-sm shadow-black p-2 md:p-0">
-      <div className="flex justify-around gap-10 items-center mb-4 md:mb-0">
+      <div className="flex md:justify-around md:gap-10 items-center mb-4 md:mb-0">
         <NavLink to="/">
-          <img src={logo} alt="MoviesLib logo" className="w-32 md:w-40" />
+          <img
+            src={logo}
+            alt="MoviesLib logo"
+            className="w-32 md:w-40 mr-36 md:mr-0"
+          />
         </NavLink>
 
         <HamburgerMenu
-          className="md:hidden text-white h-10 w-5"
+          className="md:hidden text-white h-10 w-5 mr-5"
           handleClick={() => setShowLinks(!showLinks)}
         />
 
@@ -73,16 +77,16 @@ export default function Header() {
         )}
       </nav>
 
-      <form className="flex items-center" onSubmit={handleSubmit}>
+      <form className="flex items-center relative" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="Faça a sua busca"
           onChange={(e) => setSearch(e.target.value)}
           value={search}
-          className="w-full md:w-80 h-8 p-3 border-b-2 border-gray-200 text-lg bg-purple-900 outline-none text-white focus:border-white placeholder:text-gray-300"
+          className="md:w-80 h-8 p-3 border-b-2 border-gray-200 text-lg bg-purple-900 outline-none text-white focus:border-white placeholder:text-gray-300"
         />
-        <button className="h-8 w-12 bg-transparent border-none cursor-pointer">
-          <FaSearch className="w-2/3 h-2/3 text-white" />
+        <button className="cursor-pointer absolute right-0 pr-2">
+          <FaSearch size={20} className="text-white" />
         </button>
       </form>
 

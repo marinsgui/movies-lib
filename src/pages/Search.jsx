@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
-import Loading from "../../components/Loading/Loading";
-import MovieCard from "../../components/MovieCard/MovieCard";
+import Loading from "../components/Loading";
+import MovieCard from "../components/MovieCard";
 
 export default function Search() {
   const apiKey = import.meta.env.VITE_API_KEY;

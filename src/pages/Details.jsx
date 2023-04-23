@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 
 import { AiOutlineClockCircle } from "react-icons/ai";
 
-import Loading from "../../components/Loading/Loading";
-import CategoryItem from "../../components/CategoryItem/CategoryItem";
+import Loading from "../components/Loading";
+import CategoryItem from "../components/CategoryItem";
 
 export default function Details() {
   const moviesURL = import.meta.env.VITE_API;

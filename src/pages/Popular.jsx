@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-import Loading from "../../components/Loading/Loading";
-import MovieCard from "../../components/MovieCard/MovieCard";
+import Loading from "../components/Loading";
+import MovieCard from "../components/MovieCard";
 
 export default function PopularMovies() {
   const moviesURL = import.meta.env.VITE_API;

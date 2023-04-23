@@ -1,4 +1,4 @@
-import image from "../../assets/home-cinema-animate.svg";
+import image from "../assets/home-cinema-animate.svg";
 
 export default function Home() {
   return (
