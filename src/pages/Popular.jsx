@@ -27,7 +27,7 @@ export default function PopularMovies() {
 
   return (
     <main className="bg-slate-100 dark:bg-gray-800 min-h-screen">
-      <h1 className="text-center text-5xl text-black dark:text-white pt-5">
+      <h1 className="text-center text-5xl text-black font-semibold dark:text-white pt-5">
         Filmes populares
       </h1>
       {loading && <Loading />}
