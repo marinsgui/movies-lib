@@ -30,8 +30,8 @@ export default function Header() {
 
   return (
     <header className="
-      p-2 md:p-0 sticky top-0 z-10 
-      bg-purple-800 
+      p-2 md:p-0 sticky top-0 z-10
+      bg-slate-100 dark:bg-gray-800
       flex flex-col md:flex-row justify-around items-center 
       shadow-sm shadow-black 
     ">
@@ -48,7 +48,7 @@ export default function Header() {
         </NavLink>
 
         <HamburgerMenu
-          className="md:hidden text-white h-10 w-5 mr-5"
+          className="md:hidden text-black dark:text-white h-10 w-5 mr-5"
           handleClick={() => setShowLinks(!showLinks)}
         />
 
@@ -56,7 +56,7 @@ export default function Header() {
           <FaMoon
             size={25}
             title="Adicionar modo escuro"
-            className="text-white cursor-pointer md:hidden"
+            className="text-black cursor-pointer md:hidden"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           />
         )}
@@ -80,8 +80,7 @@ export default function Header() {
           <div className="w-full h-screen">
             <FaWindowClose
               size={30}
-              color="white"
-              className="absolute top-15 right-10"
+              className="absolute top-15 right-10 dark:text-white"
               onClick={() => setShowLinks(!showLinks)}
             />
             <NavLinks className="
@@ -101,11 +100,14 @@ export default function Header() {
           value={search}
           className="
             md:w-80 h-8 p-3 border-b-2 
-            text-lg bg-purple-900 outline-none text-white 
-            focus:border-white placeholder:text-gray-300
+            border-gray-700 dark:border-slate-100 
+            text-lg text-black dark:text-white
+            bg-slate-200 dark:bg-gray-900 
+            outline-none
+            focus:border-b-[3px] placeholder:text-gray-800 dark:placeholder:text-gray-300
           " />
         <button className="cursor-pointer absolute right-0 pr-2">
-          <FaSearch size={20} className="text-white" />
+          <FaSearch size={20} className="text-black dark:text-white" />
         </button>
       </form>
 
@@ -113,7 +115,7 @@ export default function Header() {
         <FaMoon
           size={25}
           title="Adicionar modo escuro"
-          className="text-white cursor-pointer hidden md:block"
+          className="text-gray-800 cursor-pointer hidden md:block"
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         />
       )}

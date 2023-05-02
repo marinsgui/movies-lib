@@ -6,12 +6,7 @@ export default function NavLinks({ className }) {
       <li>
         <NavLink
           to="/popular"
-          className="font-bold text-white hover:text-gray-300 active:border-b-2 border-gray-300"
-          style={({ isActive }) => {
-            return {
-              borderBottom: isActive ? "2px solid white" : "",
-            };
-          }}
+          className="font-bold text-gray-800 dark:text-white hover:text-gray-500 dark:hover:text-slate-100"
         >
           Filmes populares
         </NavLink>
@@ -19,12 +14,7 @@ export default function NavLinks({ className }) {
       <li>
         <NavLink
           to="/topratedmovies"
-          className="font-bold text-white hover:text-gray-300 active:border-b-2 border-gray-300"
-          style={({ isActive }) => {
-            return {
-              borderBottom: isActive ? "2px solid white" : "",
-            };
-          }}
+          className="font-bold text-gray-800 dark:text-white hover:text-gray-500 dark:hover:text-slate-100"
         >
           Melhores filmes
         </NavLink>
@@ -32,12 +22,7 @@ export default function NavLinks({ className }) {
       <li>
         <NavLink
           to="/upcoming"
-          className="font-bold text-white hover:text-gray-300 active:border-b-2 border-gray-300"
-          style={({ isActive }) => {
-            return {
-              borderBottom: isActive ? "2px solid white" : "",
-            };
-          }}
+          className="font-bold text-gray-800 dark:text-white hover:text-gray-500 dark:hover:text-slate-100"
         >
           Próximos lançamentos
         </NavLink>
@@ -45,12 +30,7 @@ export default function NavLinks({ className }) {
       <li>
         <NavLink
           to="/nowplaying"
-          className="font-bold text-white hover:text-gray-300 active:border-b-2 border-gray-300"
-          style={({ isActive }) => {
-            return {
-              borderBottom: isActive ? "2px solid white" : "",
-            };
-          }}
+          className="font-bold text-gray-800 dark:text-white hover:text-gray-500 dark:hover:text-slate-100"
         >
           Filmes em cartaz
         </NavLink>

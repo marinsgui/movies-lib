@@ -15,12 +15,3 @@
 body {
     overflow: overlay;
 }
-
-::-webkit-scrollbar {
-    width: 0.5em;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: rgb(107 33 168);
-    border-radius: 100vw;
-}
