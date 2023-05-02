@@ -32,7 +32,7 @@ export default function PopularMovies() {
       </h1>
       {loading && <Loading />}
       {popularMovies && (
-        <ul className="flex justify-around items-center flex-wrap gap-y-8 gap-x-6 w-4/5 mx-auto py-20">
+        <ul className="flex justify-around items-center flex-wrap gap-y-8 gap-x-7 w-4/5 mx-auto py-20">
           {popularMovies.map((item) => (
             <MovieCard key={item.id} movie={item} />
           ))}

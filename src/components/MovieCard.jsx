@@ -6,7 +6,7 @@ export default function MovieCard({ movie }) {
   return (
     <Link to={`/details/${movie.id}`}>
       <li className='
-        w-80 h-96 rounded-2xl relative 
+        w-72 h-96 rounded-2xl relative 
         flex items-end 
         duration-500 shadow-lg shadow-black 
         before:content-[""] before:absolute before:top-0 before:left-0 before:block before:w-full before:h-full before:z-10 before:duration-500 before:rounded-2xl 
