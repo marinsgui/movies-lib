@@ -32,8 +32,8 @@ export default function Header() {
     <header className="
       p-2 md:p-0 sticky top-0 z-10
       bg-slate-100 dark:bg-gray-800
-      flex flex-col md:flex-row justify-around items-center 
-      shadow-sm shadow-black 
+      flex flex-col md:flex-row justify-around items-center
+      shadow-sm shadow-black/10 
     ">
       <div className="
         flex md:justify-around md:gap-10 items-center 
