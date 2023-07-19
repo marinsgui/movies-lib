@@ -1,3 +1,4 @@
+import { Calendar, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function MovieCard({ movie }) {
@@ -6,7 +7,8 @@ export default function MovieCard({ movie }) {
   return (
     <Link to={`/details/${movie.id}`}>
       <li className='
-        w-72 h-96 rounded-2xl relative 
+        w-40 h-56
+        md:w-72 md:h-96 rounded-2xl relative 
         flex items-end 
         duration-500 shadow-lg shadow-black 
         before:content-[""] before:absolute before:top-0 before:left-0 before:block before:w-full before:h-full before:z-10 before:duration-500 before:rounded-2xl 
@@ -17,7 +19,7 @@ export default function MovieCard({ movie }) {
           <img
             src={imageURL + movie.poster_path}
             alt={movie.title}
-            className="w-full h-full rounded-2xl"
+            className="w-full h-full rounded-2xl object-cover"
           />
         </div>
         <div className="
@@ -28,20 +30,20 @@ export default function MovieCard({ movie }) {
           group-hover:opacity-100 group-hover:translate-y-1
         ">
           <h2 className="font-bold">{movie.title}</h2>
-          <p>
-            Data de lançamento:{" "}
+          <span className="flex gap-1">
+            <Calendar size={20} /> {" "}
             {new Intl.DateTimeFormat("pt-br").format(
               Date.parse(movie.release_date)
             )}
-          </p>
-          <p className="text-sm mb-4">
-            &#x2B50; {movie.vote_average}
-          </p>
+          </span>
+          <span className="flex gap-1 text-sm mb-4">
+            <Star size={20} /> {movie.vote_average}
+          </span>
           <span className="
             p-2 rounded 
-            bg-purple-800 
+            bg-indigo-400 
             font-bold text-white 
-            hover:bg-purple-900 hover:text-gray-200
+            hover:bg-indigo-500
           ">
             Veja mais
           </span>

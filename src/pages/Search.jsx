@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
-import Loading from "../components/Loading";
 import MovieCard from "../components/MovieCard";
+import { ArrowLeft } from "lucide-react";
 
 export default function Search() {
   const apiKey = import.meta.env.VITE_API_KEY;
@@ -10,16 +10,13 @@ export default function Search() {
 
   const [searchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(false);
   const query = searchParams.get("q");
 
   const getSearchedMovies = async (url) => {
-    setLoading(true);
     const res = await fetch(url);
     const data = await res.json();
 
     setMovies(data.results);
-    setLoading(false);
   };
 
   useEffect(() => {
@@ -29,16 +26,17 @@ export default function Search() {
   }, [query]);
 
   return (
-    <main className="bg-slate-100 dark:bg-gray-800 min-h-screen">
-      <h1 className="text-center text-5xl text-black font-semibold dark:text-white pt-5">
-        Resultados para: {query}
-      </h1>
-      {loading && <Loading />}
+    <main className="p-20 bg-gray-900">
+      <div className="flex justify-between items-center gap-5 mb-10 text-gray-50  font-semibold">
+        <Link to="/" className="flex items-center">
+          <ArrowLeft size={30} color="rgb(249 250 251)" />
+          Voltar
+        </Link>
+        <h1 className="text-5xl">Resultados para: {query}</h1>
+      </div>
       {movies && (
-        <ul className="flex justify-around items-center flex-wrap gap-y-8 gap-x-7 w-4/5 mx-auto py-20">
-          {movies.map((item) => (
-            <MovieCard key={item.id} movie={item} />
-          ))}
+        <ul className="flex justify-around items-center flex-wrap gap-8 mx-auto">
+            {movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
         </ul>
       )}
     </main>

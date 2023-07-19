@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import { AiOutlineClockCircle } from "react-icons/ai";
-
 import Loading from "../components/Loading";
-import CategoryItem from "../components/CategoryItem";
+import { Star } from "lucide-react";
 
 export default function Details() {
   const moviesURL = import.meta.env.VITE_API;
@@ -30,63 +28,79 @@ export default function Details() {
   }, []);
 
   return (
-    <main
-      className="min-h-screen md:min-h-[90vh] md:py-8 p-4 bg-slate-100 dark:bg-gray-800"
-      style={{
-        backgroundImage: `linear-gradient(to right, rgba(0, 0, 0), rgba(0, 0, 0, 0.5)), url(${
-          imageURL + movie.backdrop_path
-        })`,
-        backgroundPosition: "center right",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-      }}
-    >
+    <main className="min-h-screen md:py-8 p-4 bg-gray-900 [url('./assets/background.svg')]">
       {loading && <Loading />}
 
       {movie && (
-        <section className="flex flex-col justify-end max-w-6xl md:h-[80vh] text-white">
-          <div className="md:flex md:justify-around md:items-end md:gap-4">
-            <div className="flex flex-col items-start w-52 m-auto md:min-w-[30%]">
+        <section className="flex flex-col items-center gap-28">
+          <div
+            className="w-80 h-72 md:w-[75rem] md:h-[30rem] rounded-3xl relative"
+            style={{
+              backgroundImage: `linear-gradient(180deg, rgba(54, 44, 146, 0.40) 0%, rgba(18, 98, 151, 0.40) 100%), url(${
+                imageURL + movie.backdrop_path
+              }`,
+              backgroundPosition: "center right",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+            }}
+          >
+            <div className="inline-flex flex-col gap-2 w-72 md:min-w-[35rem] p-5 md:p-10 rounded-3xl bg-gray-800/70 backdrop-blur-md absolute -bottom-20 md:-bottom-14 left-4 md:left-14">
+              <span className="text-xs text-indigo-300">MoviesLib / Movie</span>
+              <h2 className="text-lg md:text-3xl font-semibold text-gray-50">
+                {movie.title}
+              </h2>
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-20">
+            <div className="order-2 md:order-none">
               <img
                 src={imageURL + movie.poster_path}
                 alt={movie.title}
-                className="rounded-2xl"
+                className="rounded-3xl"
               />
             </div>
-            <div className="flex flex-col justify-around items-center md:items-start">
-              <div className="md:flex md:flex-col md:items-center">
-                <h2 className="text-4xl md:text-6xl text-center font-bold my-5">
-                  {movie.title}
-                </h2>
-                <p>
-                  <span className="font-bold">Título original:</span>{" "}
+
+            <div className="md:w-[30rem] flex flex-col items-start gap-10">
+              <h3 className="text-2xl font-bold text-gray-50">
+                {movie.tagline}
+              </h3>
+
+              <p className="md:text-xl text-gray-300">{movie.overview}</p>
+
+              <div className="inline-flex items-center gap-1 p-2 rounded bg-black text-[#FFAD49]">
+                <Star size={18} color="#FFAD49" />{" "}
+                <span className="text-sm">
+                  {movie.vote_average?.toFixed(1)}
+                </span>
+              </div>
+
+              <div>
+                <h4 className="text-gray-400">Título original:</h4>
+                <span className="text-gray-100 text-lg md:text-xl">
                   {movie.original_title}
-                </p>
+                </span>
               </div>
-              <div className="flex items-center my-5">
-                <div className="mr-5">
-                  <h3>&#x2B50; {movie.vote_average}</h3>
-                  <p>
-                    <AiOutlineClockCircle
-                      size={20}
-                      style={{ display: "inline" }}
-                    />{" "}
-                    {movie.runtime} min.
-                  </p>
-                </div>
-                <div className="flex flex-col md:flex-row gap-1">
-                  {movie.genres && (
-                    <CategoryItem>{movie.genres[0].name}</CategoryItem>
-                  )}
-                  {movie.genres?.[1] && (
-                    <CategoryItem>{movie.genres[1].name}</CategoryItem>
-                  )}
-                  {movie.genres?.[2] && (
-                    <CategoryItem>{movie.genres[2].name}</CategoryItem>
-                  )}
-                </div>
+              <div>
+                <h4 className="text-gray-400">Data de lançamento:</h4>
+                <span className="text-gray-100 text-lg md:text-xl">
+                  {movie.release_date &&
+                    new Intl.DateTimeFormat("pt-BR").format(
+                      Date.parse(movie.release_date)
+                    )}
+                </span>
               </div>
-              <p className="text-xl">{movie.overview}</p>
+              <div>
+                <h4 className="text-gray-400">Duração</h4>
+                <span className="text-gray-100 text-lg md:text-xl">{movie.runtime}</span>
+              </div>
+              <div>
+                <h4 className="text-gray-400">Gêneros:</h4>
+                <span className="text-gray-100 text-lg md:text-xl">
+                  {movie.genres?.[0].name}, {movie.genres?.[1].name},{" "}
+                  {movie.genres?.[2].name}
+                </span>
+              </div>
             </div>
           </div>
         </section>
