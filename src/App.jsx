@@ -1,4 +1,5 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
+import { useLayoutEffect } from "react";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -8,9 +9,21 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 
 function App() {
+
+  function ScrollToTop() {
+    const { pathname } = useLocation()
+
+    useLayoutEffect(() => {
+      window.scrollTo(0, 0)
+    }, [pathname])
+
+    return null
+  }
+
   return (
     <>
       <Header />
+      <ScrollToTop />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/details/:id" element={<Details />} />

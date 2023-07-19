@@ -28,7 +28,7 @@ export default function Details() {
   }, []);
 
   return (
-    <main className="min-h-screen md:py-8 p-4 bg-gray-900 [url('./assets/background.svg')]">
+    <main className="min-h-screen md:py-8 p-4 bg-gray-900 bg-[url('./assets/background.svg')] bg-cover bg-center">
       {loading && <Loading />}
 
       {movie && (

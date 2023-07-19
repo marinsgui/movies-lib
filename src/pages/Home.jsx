@@ -8,7 +8,7 @@ export default function Home() {
   const apiKey = import.meta.env.VITE_API_KEY;
 
   const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState("popular")
+  const [selectedMovie, setSelectedMovie] = useState("popular");
   const [loading, setLoading] = useState(false);
 
   const getMovies = async (url) => {
@@ -50,8 +50,18 @@ export default function Home() {
     },
   ]
 
+  function showCategoryName() {
+    switch (selectedMovie) {
+      case '/popular' : return 'Populares';
+      case '/top_rated' : return 'Maiores avaliações';
+      case '/upcoming' : return 'Próximos Lançamentos';
+      case '/now_playing' : return 'Em cartaz';
+      default : return 'Populares'
+    }
+  }
+
   return (
-    <main className="flex flex-col gap-5 px-5 md:px-20 bg-gray-900 bg-[url('./assets/background.svg')]">
+    <main className="flex flex-col gap-5 px-5 md:px-20 bg-gray-900 bg-[url('./assets/background.svg')] bg-cover bg-center">
       <h1 className="text-6xl font-semibold text-gray-50 mt-20">MoviesLib</h1>
       <SearchInput />
 
@@ -67,7 +77,7 @@ export default function Home() {
         ))}
       </nav>
 
-      <h2 className="text-gray-400 text-4xl font-semibold py-5">Populares</h2>
+      <h2 className="text-gray-400 text-4xl font-semibold py-5">{showCategoryName()}</h2>
 
       <section>
         <ul className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mx-auto">
