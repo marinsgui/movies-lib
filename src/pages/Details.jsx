@@ -92,7 +92,7 @@ export default function Details() {
               </div>
               <div>
                 <h4 className="text-gray-400">Duração</h4>
-                <span className="text-gray-100 text-lg md:text-xl">{movie.runtime}</span>
+                <span className="text-gray-100 text-lg md:text-xl">{movie.runtime} min.</span>
               </div>
               <div>
                 <h4 className="text-gray-400">Gêneros:</h4>
