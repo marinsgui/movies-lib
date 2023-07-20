@@ -1,9 +1,10 @@
-import SearchInput from "../components/SearchInput";
-import MovieCard from "../components/MovieCard";
 import { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import SearchInput from "../components/SearchInput";
+import MovieList from "../components/MovieList";
 
 export default function Home() {
-
   const moviesURL = import.meta.env.VITE_API;
   const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -21,42 +22,51 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const selectedMovieItem = menuItems.find(item => item.path === selectedMovie)
-    const moviesUrl = `${moviesURL}${selectedMovie || selectedMovieItem.path}?${apiKey}&language=pt-BR&region=BR`;
+    const selectedMovieItem = menuItems.find(
+      (item) => item.path === selectedMovie
+    );
+    const moviesUrl = `${moviesURL}${
+      selectedMovie || selectedMovieItem.path
+    }?${apiKey}&language=pt-BR&region=BR`;
 
     getMovies(moviesUrl);
   }, [selectedMovie]);
 
   const menuItems = [
     {
-      text: 'Populares',
-      path: '/popular',
+      text: "Populares",
+      path: "/popular",
       id: 1,
     },
     {
-      text: 'Maiores avaliações',
-      path: '/top_rated',
+      text: "Maiores avaliações",
+      path: "/top_rated",
       id: 2,
     },
     {
-      text: 'Próximos Lançamentos',
-      path: '/upcoming',
+      text: "Próximos Lançamentos",
+      path: "/upcoming",
       id: 3,
     },
     {
-      text: 'Em cartaz',
-      path: '/now_playing',
+      text: "Em cartaz",
+      path: "/now_playing",
       id: 4,
     },
-  ]
+  ];
 
   function showCategoryName() {
     switch (selectedMovie) {
-      case '/popular' : return 'Populares';
-      case '/top_rated' : return 'Maiores avaliações';
-      case '/upcoming' : return 'Próximos Lançamentos';
-      case '/now_playing' : return 'Em cartaz';
-      default : return 'Populares'
+      case "/popular":
+        return "Populares";
+      case "/top_rated":
+        return "Maiores avaliações";
+      case "/upcoming":
+        return "Próximos Lançamentos";
+      case "/now_playing":
+        return "Em cartaz";
+      default:
+        return "Populares";
     }
   }
 
@@ -66,10 +76,14 @@ export default function Home() {
       <SearchInput />
 
       <nav className="w-1/2 mx-auto md:mx-0 md:w-[810px] flex justify-center items-center gap-1 md:gap-2 p-1 rounded-xl bg-black/20">
-        {menuItems.map(item => (
+        {menuItems.map((item) => (
           <div
-            key={item.id} 
-            className={`p-4 md:py-2 md:px-8 text-xs md:text-base rounded-lg font-semibold cursor-pointer ${selectedMovie === item.path ? "bg-indigo-400 text-gray-50" : "text-gray-300"}`}
+            key={item.id}
+            className={`p-4 md:py-2 md:px-8 text-xs md:text-base rounded-lg font-semibold cursor-pointer ${
+              selectedMovie === item.path
+                ? "bg-indigo-400 text-gray-50"
+                : "text-gray-300"
+            }`}
             onClick={() => setSelectedMovie(item.path)}
           >
             {item.text}
@@ -77,15 +91,24 @@ export default function Home() {
         ))}
       </nav>
 
-      <h2 className="text-gray-400 text-4xl font-semibold py-5">{showCategoryName()}</h2>
+      <h2 className="text-gray-400 text-4xl font-semibold py-5">
+        {showCategoryName()}
+      </h2>
 
-      <section>
+      <section className="pb-20">
         <ul className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mx-auto">
-            {movies && movies.map(movie => (
-              <MovieCard key={movie.id} movie={movie} />
-            ))}
+          {loading ? 
+                movies.map((movie) => (
+                <Skeleton
+                  count={1}
+                  baseColor="gray"
+                  className="w-40 h-56
+        md:w-72 md:h-96 rounded-2xl"
+                />
+              ))
+            : movies.map((movie) => <MovieList movie={movie} key={movie.id} />)}
         </ul>
       </section>
     </main>
-  )
+  );
 }
