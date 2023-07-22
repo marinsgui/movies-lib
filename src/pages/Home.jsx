@@ -98,10 +98,12 @@ export default function Home() {
       <section className="pb-20">
         <ul className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mx-auto">
           {loading ? 
-                movies.map((movie) => (
+                movies.map(() => (
                 <Skeleton
                   count={1}
-                  baseColor="gray"
+                  baseColor="rgb(16, 29, 58)"
+                  highlightColor="rgba(17, 24, 39, 0.5)"
+                  duration={1}
                   className="w-40 h-56
         md:w-72 md:h-96 rounded-2xl"
                 />
