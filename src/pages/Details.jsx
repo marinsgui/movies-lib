@@ -97,8 +97,8 @@ export default function Details() {
               <div>
                 <h4 className="text-gray-400">Gêneros:</h4>
                 <span className="text-gray-100 text-lg md:text-xl">
-                  {movie.genres?.[0].name}, {movie.genres?.[1].name},{" "}
-                  {movie.genres?.[2].name}
+                  {movie.genres?.[0]?.name}, {movie.genres?.[1]?.name},{" "}
+                  {movie.genres?.[2]?.name}
                 </span>
               </div>
             </div>
