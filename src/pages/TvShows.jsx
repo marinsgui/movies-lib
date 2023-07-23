@@ -2,69 +2,69 @@ import { useEffect, useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import SearchInput from "../components/SearchInput";
-import MovieList from "../components/MovieList";
+import TvShowsList from "../components/TvShowsList";
 
-export default function Home() {
-  const moviesURL = import.meta.env.VITE_API;
+export default function TvShows() {
+  const showsURL = import.meta.env.VITE_API_TV;
   const apiKey = import.meta.env.VITE_API_KEY;
 
-  const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState("popular");
+  const [shows, setShows] = useState([]);
+  const [selectedShow, setSelectedShow] = useState("popular");
   const [loading, setLoading] = useState(false);
 
-  const getMovies = async (url) => {
+  const getShows = async (url) => {
     setLoading(true);
     const res = await fetch(url);
     const data = await res.json();
 
-    setMovies(data.results);
+    setShows(data.results);
     setLoading(false);
   };
 
   useEffect(() => {
-    const selectedMovieItem = menuItems.find(
-      (item) => item.path === selectedMovie
+    const selectedShowItem = menuItems.find(
+      (item) => item.path === selectedShow
     );
-    const moviesUrl = `${moviesURL}${
-      selectedMovie || selectedMovieItem.path
+    const showsUrl = `${showsURL}${
+      selectedShow || selectedShowItem.path
     }?${apiKey}&language=pt-BR&region=BR`;
 
-    getMovies(moviesUrl);
-  }, [selectedMovie]);
+    getShows(showsUrl);
+  }, [selectedShow]);
 
   const menuItems = [
     {
+      text: "Em Exibição",
+      path: "/airing_today",
+      id: 1,
+    },
+    {
+      text: "Em breve",
+      path: "/on_the_air",
+      id: 2,
+    },
+    {
       text: "Populares",
       path: "/popular",
-      id: 1,
+      id: 3,
     },
     {
       text: "Maiores avaliações",
       path: "/top_rated",
-      id: 2,
-    },
-    {
-      text: "Próximos Lançamentos",
-      path: "/upcoming",
-      id: 3,
-    },
-    {
-      text: "Em cartaz",
-      path: "/now_playing",
       id: 4,
     },
   ];
 
   function showCategoryName() {
-    switch (selectedMovie) {
+    switch (selectedShow) {
       case "/popular":
         return "Populares";
       case "/top_rated":
         return "Maiores avaliações";
-      case "/upcoming":
-        return "Próximos Lançamentos";
-      case "/now_playing":
-        return "Em cartaz";
+      case "/on_the_air":
+        return "Em breve";
+      case "/airing_today":
+        return "Em exibição";
       default:
         return "Populares";
     }
@@ -80,11 +80,11 @@ export default function Home() {
           <div
             key={item.id}
             className={`p-4 md:py-2 md:px-8 text-xs md:text-base rounded-lg font-semibold cursor-pointer ${
-              selectedMovie === item.path
+              selectedShow === item.path
                 ? "bg-indigo-400 text-gray-50"
                 : "text-gray-300"
             }`}
-            onClick={() => setSelectedMovie(item.path)}
+            onClick={() => setSelectedShow(item.path)}
           >
             {item.text}
           </div>
@@ -98,7 +98,7 @@ export default function Home() {
       <section className="pb-20">
         <ul className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-8 mx-auto">
           {loading ? 
-                movies.map(() => (
+                shows.map(() => (
                 <Skeleton
                   count={1}
                   baseColor="rgb(16, 29, 58)"
@@ -108,7 +108,7 @@ export default function Home() {
         md:w-72 md:h-96 rounded-2xl"
                 />
               ))
-            : movies.map((movie) => <MovieList movie={movie} key={movie.id} />)}
+            : shows.map((show) => <TvShowsList show={show} key={show.id} />)}
         </ul>
       </section>
     </main>

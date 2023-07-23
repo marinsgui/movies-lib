@@ -20,22 +20,14 @@ export default function Header() {
         <Clapperboard size={50} color="rgb(129 140 248)" />
       </Link>
 
-      {theme === "light" && (
-        <FaMoon
-          size={25}
-          title="Adicionar modo escuro"
-          className="text-gray-800 cursor-pointer"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        />
-      )}
-      {theme === "dark" && (
-        <FaSun
-          size={25}
-          title="Adicionar modo claro"
-          className="text-white cursor-pointer"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        />
-      )}
+      <div className="flex gap-5 text-gray-200 font-semibold">
+        <Link to="/">
+          Filmes
+        </Link>
+        <Link to="/tvshows">
+          Séries
+        </Link>
+      </div>
     </header>
   );
 }
